@@ -1,0 +1,56 @@
+{
+  "name": "only4values",
+  "main": "src/index.js",
+  "scripts": {
+    "preinstall": "npm install pm2 -g",
+    "start": "pm2 start server.config.dev.json --no-daemon",
+    "prod": "pm2 start server.config.prod.json --no-daemon",
+    "dev_node": "cd ./src && node index.js",
+    "stop": "pm2 stop all",
+    "delete": "pm2 delete all",
+    "kill": "pm2 kill",
+    "test": "cd ./src && nodemon test.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "geoip-lite": "^1.4.5",
+    "http-status": "^1.5.2",
+    "joi": "^17.6.0",
+    "log-symbols": "^5.1.0",
+    "luxon": "^3.0.1",
+    "mongoose": "^6.4.4",
+    "morgan": "^1.10.0",
+    "winston": "^3.8.1",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^24.0.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^8.0.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  }
+}

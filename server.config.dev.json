@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "video-management-dev",
+      "script": "src/index.js",
+      "instances": 1,
+      "autorestart": true,
+      "watch": true,
+      "time": true,
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": 8000,
+        "DATABASE": "mongodb+srv://admin:admin@cluster0.tca5tc1.mongodb.net/?retryWrites=true&w=majority"
+      }
+    }
+  ]
+}
